@@ -395,7 +395,6 @@ function status() {
 }
 
 function isOwn(){
-    iOcrown();
     opt = [{"name": chrome.i18n.getMessage("onlineauto"),   "value" : "online",  "color": "green"},
            {"name": chrome.i18n.getMessage("absent"),       "value" : "absent",  "color": "orange"},
            {"name": chrome.i18n.getMessage("dnd"),       "value" : "dnd",  "color": "gray"},
@@ -405,6 +404,7 @@ function isOwn(){
     document.getElementById("iOstatus").innerHTML += "<select id='ioselect' style='color: " + opt.find(k => localstatus() === k.value).color + ";'>" + opt.map(k => "<option class='io-option' style='color:" + k.color + ";' " + (k.value === localstatus() ? "selected" : "") +">" + k.name + "</option>") + '</select>'+getInfoHTML(chrome.i18n.getMessage("ownstatushelp"));
     document.getElementById("ioselect").addEventListener("change", changed);
     document.getElementById("ioselect").getElementsByTagName("option")[2].outerHTML += '<optgroup class="io-option-info" label="'+chrome.i18n.getMessage("dndhelp1")+'"></optgroup><optgroup class="io-option-info" label="'+chrome.i18n.getMessage("dndhelp2")+'"></optgroup>';
+    
 
 }
 
@@ -507,20 +507,18 @@ function time() {return Math.floor(Date.now() / 1000);}
 function iOcrown() {
     if(localuser.toUpperCase() !== user.toUpperCase()) {
         if (document.getElementsByClassName("overview")[0].innerHTML.toLowerCase().includes("isonline.tk") || document.getElementsByClassName("overview")[1].innerHTML.toLowerCase().includes("isonline.tk")) {
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <a href="https://scratch.mit.edu/projects/158291459/" target="_blank" title="isOnline crown - click for more info" style="text-decoration: none;">👑</a>';
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].style.color = "orange";}
+            }
         if (document.getElementsByClassName("overview")[0].innerHTML.toLowerCase().includes("#lovecookies") || document.getElementsByClassName("overview")[1].innerHTML.toLowerCase().includes("#lovecookies")) {
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline cookie">🍪</a>';}
+            }
         if (document.getElementsByClassName("overview")[0].innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5)) || document.getElementsByClassName("overview")[1].innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5))) {
             document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline b">🖌️</a>';}
     } else {
         if (document.getElementById("bio").innerHTML.toLowerCase().includes("isonline.tk") || document.getElementById("status").innerHTML.toLowerCase().includes("isonline.tk")) {
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <a href="https://scratch.mit.edu/projects/158291459/" target="_blank" title="isOnline crown - click for more info" style="text-decoration: none;">👑</a>';
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].style.color = "orange";}
+            }
         if (document.getElementById("bio").innerHTML.toLowerCase().includes("#lovecookies") || document.getElementById("status").innerHTML.toLowerCase().includes("#lovecookies")) {
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline cookie">🍪</a>';}
+            }
         if (document.getElementById("bio").innerHTML.includes(btoa(user).substr(0, 5)) || document.getElementById("status").innerHTML.includes(btoa(user).substr(0, 5))) {
-            document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline cookie">🎃</a>';}
+            }
         if (document.getElementById("bio").innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5)) || document.getElementById("status").innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5))) {
             document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline b">🖌️</a>';}
     }

@@ -148,5 +148,8 @@
    },
    "shiftenter":{
       "message":"Presiona Shift+Intro para publicar."
+   },
+   "removeiolinks":{
+      "message":"Whoops! You have iO links or iO ads in your profile. This is not allowed. Please remove. (Crown is not available now.)"
    }
 }

@@ -404,8 +404,7 @@ function isOwn(){
     document.getElementById("iOstatus").innerHTML += "<select id='ioselect' style='color: " + opt.find(k => localstatus() === k.value).color + ";'>" + opt.map(k => "<option class='io-option' style='color:" + k.color + ";' " + (k.value === localstatus() ? "selected" : "") +">" + k.name + "</option>") + '</select>'+getInfoHTML(chrome.i18n.getMessage("ownstatushelp"));
     document.getElementById("ioselect").addEventListener("change", changed);
     document.getElementById("ioselect").getElementsByTagName("option")[2].outerHTML += '<optgroup class="io-option-info" label="'+chrome.i18n.getMessage("dndhelp1")+'"></optgroup><optgroup class="io-option-info" label="'+chrome.i18n.getMessage("dndhelp2")+'"></optgroup>';
-    
-
+    ioCrown(1);
 }
 
 function isOnline() {
@@ -504,20 +503,25 @@ function localstatus(){if(localStorage.getItem("iOstatus")!==null){return localS
 
 function time() {return Math.floor(Date.now() / 1000);}
 
-function iOcrown() {
+function iOcrown(thisisown=0) {
     if(localuser.toUpperCase() !== user.toUpperCase()) {
         if (document.getElementsByClassName("overview")[0].innerHTML.toLowerCase().includes("isonline.tk") || document.getElementsByClassName("overview")[1].innerHTML.toLowerCase().includes("isonline.tk")) {
+                if (thisisown) { try{ document.getElementById("alert-view").innerHTML="<div class='alert fade in alert-success' style='display: block;'><span class='close' onclick='document.getElementById(\"alert-view\").style.display=\"none\";'>×</span>" + chrome.i18n.getMessage("removeiolinks") + "</div>";}catch(err){}} }
             }
         if (document.getElementsByClassName("overview")[0].innerHTML.toLowerCase().includes("#lovecookies") || document.getElementsByClassName("overview")[1].innerHTML.toLowerCase().includes("#lovecookies")) {
+                if (thisisown) { try{ document.getElementById("alert-view").innerHTML="<div class='alert fade in alert-success' style='display: block;'><span class='close' onclick='document.getElementById(\"alert-view\").style.display=\"none\";'>×</span>" + chrome.i18n.getMessage("removeiolinks") + "</div>";}catch(err){}} }
             }
         if (document.getElementsByClassName("overview")[0].innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5)) || document.getElementsByClassName("overview")[1].innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5))) {
             document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline b">🖌️</a>';}
     } else {
         if (document.getElementById("bio").innerHTML.toLowerCase().includes("isonline.tk") || document.getElementById("status").innerHTML.toLowerCase().includes("isonline.tk")) {
+                if (thisisown) { try{ document.getElementById("alert-view").innerHTML="<div class='alert fade in alert-success' style='display: block;'><span class='close' onclick='document.getElementById(\"alert-view\").style.display=\"none\";'>×</span>" + chrome.i18n.getMessage("removeiolinks") + "</div>";}catch(err){}} }
             }
         if (document.getElementById("bio").innerHTML.toLowerCase().includes("#lovecookies") || document.getElementById("status").innerHTML.toLowerCase().includes("#lovecookies")) {
+                if (thisisown) { try{ document.getElementById("alert-view").innerHTML="<div class='alert fade in alert-success' style='display: block;'><span class='close' onclick='document.getElementById(\"alert-view\").style.display=\"none\";'>×</span>" + chrome.i18n.getMessage("removeiolinks") + "</div>";}catch(err){}} }
             }
         if (document.getElementById("bio").innerHTML.includes(btoa(user).substr(0, 5)) || document.getElementById("status").innerHTML.includes(btoa(user).substr(0, 5))) {
+                if (thisisown) { try{ document.getElementById("alert-view").innerHTML="<div class='alert fade in alert-success' style='display: block;'><span class='close' onclick='document.getElementById(\"alert-view\").style.display=\"none\";'>×</span>" + chrome.i18n.getMessage("removeiolinks") + "</div>";}catch(err){}} }
             }
         if (document.getElementById("bio").innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5)) || document.getElementById("status").innerHTML.includes(btoa(user.split``.reverse``.join``).substr(0, 5))) {
             document.getElementsByClassName("header-text")[0].getElementsByTagName("h2")[0].innerHTML += ' <span title="isOnline b">🖌️</a>';}

@@ -148,5 +148,8 @@
    },
    "shiftenter":{
       "message":"Nhấn Shift + Enter để đăng bài"
+   },
+   "removeiolinks":{
+      "message":"Whoops! You have iO links or iO ads in your profile. This is not allowed. Please remove. (Crown is not available now.)"
    }
 }
